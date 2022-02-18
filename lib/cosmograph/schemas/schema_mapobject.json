@@ -1,0 +1,326 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "title": "Map Object",
+    "options":{
+        "disable_collapse": true
+    },
+    "default": {},
+    "examples": [
+        {
+            "name": "Sample",
+            "markerType": "marker",
+            "markerIcon": "fa-codepen",
+            "markerColor": "red",
+            "markerShape": "star",
+            "popupContent": "Description",
+            "popupLink": "https://url.com/",
+            "markerCoordinates": "1851.75, 1733.75"
+        }
+    ],
+    "required": [
+        "name",
+        "markerType",
+        "markerIcon",
+        "markerColor",
+        "markerShape",
+        "popupContent",
+        "popupLink",
+        "markerCoordinates",
+        "labelHideTooltipStyling",
+        "labelDot",
+        "labelText",
+        "labelFont",
+        "labelColor",
+        "labelStyle",
+        "labelShadow",
+        "labelCoordinates",
+        "regionColor",
+        "regionCoordinates"
+    ],
+    "properties": {
+        "name": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/name",
+            "type": "string",
+            "title": "Name",
+            "minLength": 3,
+            "default": "",
+            "examples": [
+                "Sample"
+            ]
+        },
+        "markerType": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/markerType",
+            "type": "string",
+            "title": "Type",
+            "uniqueItems": true,
+            "format": "select",
+            "default": "Marker",
+            "enum": ["Marker","Label", "Region"],
+            "examples": [
+                "Marker"
+            ]
+        },
+        "markerIcon": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/markerIcon",
+            "type": "string",
+            "title": "Icon",
+            "minLength": 7,
+            "description": "eg, '<b>fab fa-accessible-icon</b>'. One of the free <a href='https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free'>Font Awesome</a> icons",
+            "default": "",
+            "options": {
+                "dependencies": {
+                    "markerType": "Marker"
+                }
+            },
+            "examples": [
+                "fa fa-codepen"
+            ]
+        },
+        "markerColor": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/markerColor",
+            "type": "string",
+            "title": "Marker Color",
+            "format": "select",
+            "enum": ["red", "orange-dark", "orange", "yellow", "blue-dark", "cyan", "purple", "violet", "pink", "green-dark", "green", "green-light", "black", "white"],
+            "default": "red",
+            "options": {
+                "dependencies": {
+                    "markerType": "Marker"
+                }
+            },
+            "examples": [
+                "red"
+            ]
+        },
+        "markerShape": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/markerShape",
+            "type": "string",
+            "title": "Marker Shape",
+            "uniqueItems": true,
+            "format": "select",
+            "enum": ["circle", "square", "star", "penta"],
+            "default": "circle",
+            "options": {
+                "dependencies": {
+                    "markerType": "Marker"
+                }
+            },
+            "examples": [
+                "star"
+            ]
+        },
+        "popupContent": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/popupContent",
+            "type": "string",
+            "title": "Tooltip Text",
+            "description": "What should the tooltip for this say? Accepts html (b,u,br,etc, within angle brackets)",
+            "default": "",
+            "options": {
+                "dependencies": {
+                    "markerType": "Marker"
+                }
+            },
+            "examples": [
+                "Description"
+            ]
+        },
+        "popupLink": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/popupLink",
+            "type": "string",
+            "title": "Popup Link",
+            "description": "A link to a relevant wiki page (leave blank if not needed)",
+            "default": "",
+            "options": {
+                "dependencies": {
+                    "markerType": "Marker"
+                }
+            },
+            "examples": [
+                "https://url.com/"
+            ]
+        },
+        "markerCoordinates": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/markerCoordinates",
+            "type": "string",
+            "title": "Coordinates",
+            "description": "eg, 0000, 0000. Location of the marker on the map",
+            "default": "",
+            "options": {
+                "dependencies": {
+                    "markerType": "Marker"
+                }
+            },
+            "examples": [
+                "1851.75, 1733.75"
+            ]
+        },
+        "labelHideTooltipStyling": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/labelHideTooltipStyling",
+            "type": "boolean",
+            "title": "Hide tooltip styling?",
+            "description": "If true, your text will appear directly on the map. If false, your text will be in a white box with an arrow on the left side",
+            "default": false,
+            "options": {
+                "dependencies": {
+                    "markerType": "Label"
+                }
+            },
+            "examples": [
+                true
+            ]
+        },
+        "labelDot": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/labelDot",
+            "type": "boolean",
+            "title": "Show Label Dot?",
+            "description": "Show a dot next to the label at your coordinates?",
+            "default": false,
+            "options": {
+                "dependencies": {
+                    "markerType": "Label",
+                    "labelHideTooltipStyling": true
+                }
+            },
+            "examples": [
+                false
+            ]
+        },
+        "labelText": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/labelText",
+            "type": "string",
+            "title": "Label Text",
+            "description": "What does the label say?",
+            "minLength": 3,
+            "default": "",
+            "options": {
+                "dependencies": {
+                    "markerType": "Label"
+                }
+            },
+            "examples": [
+                "Description"
+            ]
+        },
+        "labelFont": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/labelFont",
+            "type": "string",
+            "title": "Label Font",
+            "description": "The font for this label",
+            "uniqueItems": true,
+            "format": "select",
+            "enum": ["Verdana", "Inconsolata", "Dancing Script", "Poppins", "Saira Condensed"],
+            "default": "Verdana",
+            "options": {
+                "dependencies": {
+                    "markerType": "Label"
+                }
+            },
+            "examples": [
+                "Verdana"
+            ]
+        },
+        "labelColor": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/labelColor",
+            "type": "string",
+            "title": "Label Color",
+            "description": "The color (ie, White) you want this label to be. Requires a matching style. White, Black, DarkGray, Red, Blue, and Green have been provided. You can add more in the custom CSS file",
+            "uniqueItems": true,
+            "format": "select",
+            "enum": ["White", "Black", "DarkGray", "Red", "Blue", "Green"],
+            "default": "Black",
+            "options": {
+                "dependencies": {
+                    "markerType": "Label",
+                    "labelHideTooltipStyling": true
+                }
+            },
+            "examples": [
+                "White"
+            ]
+        },
+        "labelStyle": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/labelStyle",
+            "type": "string",
+            "title": "Label Style",
+            "description": "The font styling for this label",
+            "default": "",
+            "uniqueItems": true,
+            "format": "select",
+            "enum": ["Bold","Italic","Underscore","LargeBold","LargeItalic","LargeUnderscore","ExtraLargeBold"],
+            "options": {
+                "dependencies": {
+                    "markerType": "Label",
+                    "labelHideTooltipStyling": true
+                }
+            },
+            "examples": [
+                "myLabel"
+            ]
+        },
+        "labelShadow": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/labelShadow",
+            "type": "string",
+            "title": "Label Shadow",
+            "description": "Apply a shadow? May improve visibility",
+            "default": "",
+            "uniqueItems": true,
+            "format": "select",
+            "enum": ["Black","White"],
+            "options": {
+                "dependencies": {
+                    "markerType": "Label",
+                    "labelHideTooltipStyling": true
+                }
+            },
+            "examples": [
+                "Black"
+            ]
+        },
+        "labelCoordinates": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/labelCoordinates",
+            "type": "string",
+            "title": "Coordinates",
+            "description": "eg, 0000, 0000. Location of the label on the map",
+            "default": "",
+            "options": {
+                "dependencies": {
+                    "markerType": "Label"
+                }
+            },
+            "examples": [
+                "1851.75, 1733.75"
+            ]
+        },
+        "regionColor": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/regionColor",
+            "type": "string",
+            "title": "Text",
+            "description": "eg, red. A CSS-compatible color. https://www.quackit.com/css/css_color_codes.cfm",
+            "default": "red",
+            "options": {
+                "dependencies": {
+                    "markerType": "Region"
+                }
+            },
+            "examples": [
+                "red"
+            ]
+        },
+        "regionCoordinates": {
+            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0/properties/marker/properties/regionCoordinates",
+            "type": "string",
+            "title": "Coordinates",
+            "description": "eg, [0000,0000];[0001,0001];[0002,0002] (and so on). Defines the points of the polygon that makes up the region",
+            "default": "[0000,0000];[0100,0100];[0000,0100]",
+            "options": {
+                "dependencies": {
+                    "markerType": "Region"
+                }
+            },
+            "examples": [
+                "[0000,0000];[0100,0100];[0000,0100]"
+            ]
+        }
+    }
+}

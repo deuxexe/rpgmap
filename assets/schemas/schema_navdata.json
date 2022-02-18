@@ -1,0 +1,243 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "Map Navigation Configuration",
+    "description": "This tool will let you edit data related to your map's navigation. Backing up your existing JSON file before making changes or replacing it is highly recommended. <br><br>You can use the clipboard button at the bottom right to copy the generated JSON to your clipboard, then paste it into your own JSON file.",
+    "default": {},
+    "options":{
+        "disable_collapse": true
+    },
+    "examples": [
+        {
+            "name": "Kikyo Sector",
+            "coords": "2050,3000",
+            "zoom": -1,
+            "children": [
+                {
+                    "name": "Sample Sub-Sector",
+                    "coords": "0,0",
+                    "zoom": -1,
+                    "children": [
+                        {
+                            "name": "Sample Important Location",
+                            "coords": "0,0",
+                            "zoom": 2
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "required": [
+        "name",
+        "coords",
+        "zoom",
+        "children"
+    ],
+    "properties": {
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "title": "Map Name",
+            "description": "The name the overall area your map describes. e.g., Earth",
+            "default": "",
+            "examples": [
+                "Earth"
+            ]
+        },
+        "coords": {
+            "$id": "#/properties/coords",
+            "type": "string",
+            "title": "Coordinates",
+            "description": "Coordinates for the center of your map or other desired location",
+            "default": "0,0",
+            "examples": [
+                "1000,1000"
+            ]
+        },
+        "zoom": {
+            "$id": "#/properties/zoom",
+            "type": "integer",
+            "title": "Zoom",
+            "description": "When users click on the Name of your map, what level zoom should they go to? (Zooming out to see the entire map is recommended)",
+            "default": 0,
+            "examples": [
+                -1
+            ]
+        },
+        "children": {
+            "$id": "#/properties/children",
+            "type": "array",
+            "format": "tabs",
+            "title": "Map Areas",
+            "description": "Large areas of the map, such as continents.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "name": "Sample Sub-Sector",
+                        "coords": "0,0",
+                        "zoom": -1,
+                        "children": [
+                            {
+                                "name": "Sample Important Location",
+                                "coords": "0,0",
+                                "zoom": 2
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/children/items",
+                "title": "Map Area",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/children/items/anyOf/0",
+                        "type": "object",
+                        "title": "Map Area",
+                        "default": {},
+                        "options":{
+                            "disable_collapse": true
+                        },
+                        "examples": [
+                            {
+                                "name": "Sample Sub-Sector",
+                                "coords": "0,0",
+                                "zoom": -1,
+                                "children": [
+                                    {
+                                        "name": "Sample Important Location",
+                                        "coords": "0,0",
+                                        "zoom": 2
+                                    }
+                                ]
+                            }
+                        ],
+                        "required": [
+                            "name",
+                            "coords",
+                            "zoom",
+                            "children"
+                        ],
+                        "properties": {
+                            "name": {
+                                "$id": "#/properties/children/items/anyOf/0/properties/name",
+                                "type": "string",
+                                "title": "Area Name",
+                                "default": "",
+                                "examples": [
+                                    "Sample Continent"
+                                ]
+                            },
+                            "coords": {
+                                "$id": "#/properties/children/items/anyOf/0/properties/coords",
+                                "type": "string",
+                                "title": "Coordinates",
+                                "description": "Coordinates for the center of this area",
+                                "default": "0,0",
+                                "examples": [
+                                    "0,0"
+                                ]
+                            },
+                            "zoom": {
+                                "$id": "#/properties/children/items/anyOf/0/properties/zoom",
+                                "type": "integer",
+                                "title": "Zoom",
+                                "description": "Zoom level to set the map to when this area is clicked",
+                                "default": 0,
+                                "examples": [
+                                    -1
+                                ]
+                            },
+                            "children": {
+                                "$id": "#/properties/children/items/anyOf/0/properties/children",
+                                "type": "array",
+                                "title": "Locations",
+                                "format": "tabs",
+                                "options":{
+                                    "disable_collapse": true
+                                },
+                                "description": "Locations within this area, such as countries or states within a continent.",
+                                "default": [],
+                                "examples": [
+                                    [
+                                        {
+                                            "name": "Sample Important Location",
+                                            "coords": "0,0",
+                                            "zoom": 2
+                                        }
+                                    ]
+                                ],
+                                "additionalItems": true,
+                                "items": {
+                                    "$id": "#/properties/children/items/anyOf/0/properties/children/items",
+                                    "title": "Location",
+                                    "anyOf": [
+                                        {
+                                            "$id": "#/properties/children/items/anyOf/0/properties/children/items/anyOf/0",
+                                            "type": "object",
+                                            "title": "Location",
+                                            "default": {},
+                                            "options":{
+                                                "disable_collapse": true
+                                            },
+                                            "examples": [
+                                                {
+                                                    "name": "Sample Important Location",
+                                                    "coords": "0,0",
+                                                    "zoom": 2
+                                                }
+                                            ],
+                                            "required": [
+                                                "name",
+                                                "coords",
+                                                "zoom"
+                                            ],
+                                            "properties": {
+                                                "name": {
+                                                    "$id": "#/properties/children/items/anyOf/0/properties/children/items/anyOf/0/properties/name",
+                                                    "type": "string",
+                                                    "title": "Name",
+                                                    "default": "",
+                                                    "examples": [
+                                                        "Sample Important Location"
+                                                    ]
+                                                },
+                                                "coords": {
+                                                    "$id": "#/properties/children/items/anyOf/0/properties/children/items/anyOf/0/properties/coords",
+                                                    "type": "string",
+                                                    "title": "Coordinates",
+                                                    "description": "Coordinates for the location or center of the location",
+                                                    "default": "0,0",
+                                                    "examples": [
+                                                        "0,0"
+                                                    ]
+                                                },
+                                                "zoom": {
+                                                    "$id": "#/properties/children/items/anyOf/0/properties/children/items/anyOf/0/properties/zoom",
+                                                    "type": "integer",
+                                                    "title": "Zoom level",
+                                                    "description": "Zoom level to set the map to when this area is clicked",
+                                                    "default": 0,
+                                                    "examples": [
+                                                        2
+                                                    ]
+                                                }
+                                            },
+                                            "additionalProperties": true
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": true
+}

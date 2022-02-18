@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "General RPG Map Configurations",
+    "description": "This tool will let you edit data related to your page's title and site navigation. Backing up your existing JSON file before making changes or replacing it is highly recommended. <br><br>You can use the clipboard button at the bottom right to copy the generated JSON to your clipboard, then paste it into your own 'settings.json' file, located in the 'assets/data' folder.",
+    "default": {},
+    "options":{
+        "disable_collapse": true
+    },
+    "examples": [
+        {
+            "pageName": "Your map name",
+            "forumURL": "https://myurl.com/",
+            "wikiURL": "https://myurl.com/wiki/"
+        }
+    ],
+    "required": [
+        "pageName"
+    ],
+    "properties": {
+        "pageName": {
+            "$id": "#/properties/pageName",
+            "type": "string",
+            "title": "Your Map Page's Title",
+            "description": "What appears in the browser's tab when visiting your page.",
+            "default": "",
+            "examples": [
+                "My RPG Map"
+            ]
+        },
+        "forumURL": {
+            "$id": "#/properties/forumURL",
+            "type": "string",
+            "title": "Your Forum's URL",
+            "description": "e.g., https://myurl.com/ (Leave blank if you don't have one)",
+            "default": "",
+            "examples": [
+                "https://myurl.com/"
+            ]
+        },
+        "wikiURL": {
+            "$id": "#/properties/wikiURL",
+            "type": "string",
+            "title": "Your Wiki's URL",
+            "description": "e.g., https://myurl.com/wiki/ (Leave blank if you don't have one)",
+            "default": "",
+            "examples": [
+                "https://myurl.com/wiki/"
+            ]
+        }
+    },
+    "additionalProperties": true
+}

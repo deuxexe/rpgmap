@@ -1,0 +1,142 @@
+{
+  "mapConfiguration": {
+    "filename": "map.jpg",
+    "mapWidth": 4800,
+    "mapHeight": 2964,
+    "minZoom": -2,
+    "maxZoom": 1,
+    "initialZoom": -2,
+    "generateGrid": false,
+    "showDistance": true,
+    "pixelsPerDay": 10.7,
+    "measurementPostText": "by foot",
+    "customKey": "key.png"
+  },
+  "markerLayers": [
+    {
+      "layerName": "Sample",
+      "layerVisibility": "-2, -1, 0, 1",
+      "markers": [
+        {
+          "name": "Sample",
+          "markerType": "Marker",
+          "markerIcon": "fa fa-codepen",
+          "markerColor": "red",
+          "markerShape": "star",
+          "popupContent": "Description",
+          "popupLink": "http://localhost:8080/jsoneditor.html",
+          "markerCoordinates": "1851.75, 1733.75",
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              1851.75,
+              1733.75
+            ]
+          }
+        },
+        {
+          "name": "Test",
+          "markerType": "Label",
+          "labelHideTooltipStyling": false,
+          "labelText": "test",
+          "labelFont": "Verdana",
+          "labelCoordinates": "1500,1500",
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              1500,
+              1500
+            ]
+          }
+        },
+        {
+          "name": "Test 2",
+          "markerType": "Label",
+          "labelHideTooltipStyling": true,
+          "labelDot": false,
+          "labelText": "Test 2",
+          "labelFont": "Saira Condensed",
+          "labelColor": "White",
+          "labelStyle": "ExtraLargeBold",
+          "labelShadow": "Black",
+          "labelCoordinates": "1600, 1600",
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              1600,
+              1600
+            ]
+          }
+        },
+        {
+          "name": "test 4",
+          "markerType": "Marker",
+          "markerIcon": "fas fa-asterisk",
+          "markerColor": "red",
+          "markerShape": "square",
+          "popupContent": "",
+          "popupLink": "",
+          "markerCoordinates": "3156,1560",
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              3156,
+              1560
+            ]
+          }
+        },
+        {
+          "name": "test 2",
+          "markerType": "Marker",
+          "markerIcon": "fas fa-asterisk",
+          "markerColor": "yellow",
+          "markerShape": "square",
+          "popupContent": "",
+          "popupLink": "",
+          "markerCoordinates": "3048,1020",
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              3048,
+              1020
+            ]
+          }
+        },
+        {
+          "name": "Test 5",
+          "markerType": "Marker",
+          "markerIcon": "fas fa-asterisk",
+          "markerColor": "yellow",
+          "markerShape": "square",
+          "popupContent": "",
+          "popupLink": "",
+          "markerCoordinates": "3008,808",
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              3008,
+              808
+            ]
+          }
+        },
+        {
+          "name": "Coord test 2",
+          "markerType": "Marker",
+          "markerIcon": "fas fa-asterisk",
+          "markerColor": "green-light",
+          "markerShape": "square",
+          "popupContent": "",
+          "popupLink": "",
+          "markerCoordinates": "3656,84",
+          "type": "Feature"
+        }
+      ]
+    }
+  ]
+}

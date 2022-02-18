@@ -1,0 +1,157 @@
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    <link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="lib/L.SimpleGraticule/L.SimpleGraticule.css"/>
+    <link rel="stylesheet" href="lib/Leaflet.ExtraMarkers/css/leaflet.extra-markers.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <link rel="stylesheet" href="lib/leaflet.awesome-markers-2.0/leaflet.awesome-markers.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <script src="https://kit.fontawesome.com/6933682292.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="lib/L.SimpleGraticule/L.SimpleGraticule.js"></script>
+    <script src="lib/Leaflet.ExtraMarkers/js/leaflet.extra-markers.min.js"></script>
+    <script src="lib/Leaflet.Path.DashFlow/L.Path.DashFlow.js"></script>
+
+    <!-- JSON Editor for adding/editing objects -->
+    <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/jsoneditor.min.js"></script>
+
+    <!-- For additional font options for your page, Google Fonts (https://fonts.google.com/) is a great place to start. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata:bold,italic|Poppins:bold,italic|Dancing+Script:bold,italic|Saira+Condensed:bold,italic">
+
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+
+    <script src="lib/cosmograph/cosmograph.js"></script>
+    <link rel="stylesheet" href="lib/cosmograph/styles/map.css"/>
+    <link rel="stylesheet" href="lib/cosmograph/styles/spectre-custom.css"/>
+    <link rel="stylesheet" href="assets/custom.css"/>
+</head>
+
+<body>
+    <div id="mapcontainer">
+        <div id="leftContainer">
+            <div id="sitenav">
+                <img id="logo" src="assets/images/logo.png">
+            </div>
+            <div id="mapnav"></div>
+        </div>
+        <div id="mapid"></div>
+        <ul id="mapcommands" class="mapLeftMenu active">
+            <li>
+                <a id="panMap" class="selectable selected" role="button" href="#" title="Pan the Map">
+                    <i class="fas fa-hand-paper"></i>
+                </a>
+            </li>
+            <li>
+                <ul id="plotCourseOptions">
+                    <li>
+                        <a id="plotCourse" class="selectable" role="button" href="#" title="Plot a Course">
+                            <i class="fas fa-drafting-compass"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="courseDistanceToggle" class="" role="button" href="#" title="Hide/Show Distance">
+                            <i class="fas fa-ruler"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="courseColorPicker" class="" role="button" href="#" title="Change Course Line Color">
+                            <i class="fas fa-paint-brush"></i>
+                        </a>
+                        <div id="plotColorPicker" class="colorPicker"></div>
+                    </li>
+                    <li>
+                        <a id="clearCourse" class="disabled erase" role="button" href="#" title="Clear Course">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul id="editcommands">
+                    <li>
+                        <a id="editAddObject" class="selectable" role="button" href="#" title="Add/Edit Objects on the Map">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="editAddMarker" class="" role="button" href="#" title="Add Marker">
+                            <i class="fas fa-map-marker"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="editAddLabel" class="disabled" role="button" href="#" title="Add Label">
+                            <i class="fas fa-font"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="editLayers" class="always" role="button" href="#" title="Edit Layers">
+                            <i class="fas fa-layer-group"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="clearUserObjects" class="disabled erase" role="button" href="#" title="Clear ALL User Markers and Labels">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a id="copyToClipboard" class="" role="button" href="#" title="Copy Map Data JSON to Clipboard">
+                    <i class="fas fa-clipboard"></i>
+                </a>
+            </li>
+        </ul>
+        <div id="mapcontrols">
+            <div class="mc_container">
+                <i class="fas fa-feather-alt"></i>
+                <div id="cursorCoords">0, 0</div>
+            </div>
+            <span id="coordsTooltip">Coordinates of your cursor on the map. <br>Ctrl+C to add the current coordinates to your clipboard.</span>
+        </div>
+    </div>
+    <div id="mapKey"></div>
+    <div id="object_editor_wrapper" class="editor_wrapper">
+        <div class='editor_holder'></div>
+        <div class='editor_layer_selector'>
+            <label class="je-label form-label">Layer Selection</label>
+            <select class="form-select" name="root[layerSelection]">
+                <option value="Nations">Nations</option>
+            </select>
+            <p class="je-desc hide-sm">The map layer for this marker/label. Layers other than 'User' will not allow you to delete from them.</p>
+        </div>
+        <div class="editor_buttons">
+            <span class="editor_submit editor_commands">Confirm</span>
+            <span class="editor_cancel editor_commands">Cancel</span>
+        </div>
+    </div>
+    <div id="layer_editor_wrapper" class="editor_wrapper">
+        <div class='editor_holder'></div>
+        <div class='editor_layer_selector'>
+            <label class="je-label form-label">Layer Selection</label>
+            <select class="form-select" name="root[layerSelection]">
+                <option value="Nations">Nations</option>
+            </select>
+            <p class="je-desc hide-sm">The map layer for this marker/label. Layers other than 'User' will not allow you to delete from them.</p>
+        </div>
+        <div class="editor_buttons">
+            <span class="editor_submit editor_commands">Confirm</span>
+            <span class="editor_cancel editor_commands">Cancel</span>
+        </div>
+    </div>
+    <div id="loading">
+        <div id="loadingMap"><i class="fas fa-map"></i></div>
+        <div id="loadingQuill"><i class="fas fa-feather-alt"></i></div>
+    </div>
+</body>

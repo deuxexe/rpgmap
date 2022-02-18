@@ -1,0 +1,50 @@
+{
+    "$id": "#/properties/markerLayers/items",
+    "title": " Layer",
+    "oneOf": [
+        {
+            "$id": "#/properties/markerLayers/items/anyOf/0",
+            "type": "object",
+            "title": "Layer",
+            "default": {},
+            "options":{
+                "disable_edit_json": true,
+                "disable_collapse": true
+            },
+            "examples": [
+                {
+                    "layerName": "Layer 1",
+                    "layerVisibility": "-2, -1, 0, 1",
+                    "markers": []
+                }
+            ],
+            "required": [
+                "layerName",
+                "layerVisibility"
+            ],
+            "properties": {
+                "layerName": {
+                    "$id": "#/properties/markerLayers/items/anyOf/0/properties/layerName",
+                    "type": "string",
+                    "title": "Layer Name",
+                    "description": "This layer's name will be visible to users to allow them to toggle it on/off manually.",
+                    "default": "",
+                    "examples": [
+                        "Marker Type 1"
+                    ]
+                },
+                "layerVisibility": {
+                    "$id": "#/properties/markerLayers/items/anyOf/0/properties/layerVisibility",
+                    "type": "string",
+                    "title": "Zoom Visibility",
+                    "description": "A comma-separated list of zoom levels that this Layer will be visible on. Zoom levels are positive or negative numbers, less than or greater than 3.",
+                    "default": "",
+                    "examples": [
+                        "-2, -1, 0, 1"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        }
+    ]
+}

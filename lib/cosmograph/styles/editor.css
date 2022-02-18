@@ -1,0 +1,85 @@
+@media screen and (min-width: 960px) {
+    html {
+        margin-left: calc(100vw - 100%);
+        margin-right: 0;
+    }
+}
+
+html, body{
+    background: url(../../../assets/images/background.jpg) rgba(255, 0, 150, 0.3) !important;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: #333336ba !important;
+    background-repeat: no-repeat;
+    background-attachment: fixed !important;
+}
+#editor_holder{
+    width: 1000px;
+    border-top: solid 1px #7b79ff;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    z-index:999;
+}
+#copyToClipboard{
+    display: block;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    font-size: 50px;
+    width: 70px;
+    height: 70px;
+    color: white;
+    background-color: dodgerblue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#copyToClipboard:hover{
+    background-color: rgb(43, 114, 185);
+}
+#copyToClipboard:active{
+    bottom: 48px;
+    right: 48px;
+}
+#copyToClipboard i{
+    color: white;
+    margin: 8px 16px;
+}
+#editorNav{
+    display: block;
+    width: 775px;
+    margin: 10px auto 0 auto;
+    z-index: 1;
+}
+#editorNav span{
+    display: inline-block;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: white;
+    background-color: #9795d6;
+    width: 150px;
+    text-align: center;
+    padding: 3px;
+    margin: 0 2px;
+    cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#editorNav span:hover{
+    background-color: #7b79ff;
+}
+#editorNav span:active{
+    background-color: #5755d9;
+    position: relative;
+    top: 1px;
+    left: 1px;
+    padding-bottom: 2px;
+}
+#editorNav span.active{
+    background-color: #7b79ff;
+    color: white;
+    font-weight: bold;
+}

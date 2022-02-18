@@ -1,0 +1,385 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "title": "RPG Map Data Editor",
+    "description": "This tool will let you edit data related to your RPG map. Backing up your existing JSON file before making changes or replacing it is highly recommended. <br><br>You can use the clipboard button at the bottom right to copy the generated JSON to your clipboard, then paste it into your own 'mapdata.json' file, located in the 'assets/data' folder.",
+    "default": {},
+    "options":{
+        "disable_collapse": true
+    },
+    "examples": [
+        {
+            "mapConfiguration": {
+                "filename": "map.png",
+                "mapWidth": 3000,
+                "mapHeight": 3000,
+                "minZoom": -1,
+                "maxZoom": 1,
+                "initialZoom": -1,
+                "generateGrid": false,
+                "squareHeightWidth": 75,
+                "showGridLabels": false,
+                "showDistance": true,
+                "pixelsPerDay": 10.7,
+                "measurementPostText": "in FTL"
+            },
+            "markerLayers": [
+                {
+                    "layerName": "Marker Type 1",
+                    "layerVisibility": "-2, -1, 0, 1",
+                    "markers": [
+                        {
+                            "name": "Sample",
+                            "icon": "fa-codepen",
+                            "markerColor": "red",
+                            "markerShape": "star",
+                            "popupContent": "Description",
+                            "coordinates": "1851.75, 1733.75"
+                        }
+                    ]
+                },
+                {
+                    "layerName": "Marker Type 2",
+                    "layerVisibility": "-2, -1, 0, 1, 2, 3",
+                    "markers": [
+                        {
+                            "name": "Sample 2",
+                            "icon": "fa-dot-circle",
+                            "iconPrefix": "far",
+                            "markerColor": "black",
+                            "markerShape": "square",
+                            "popupContent": "Description",
+                            "coordinates": "1938, 2464"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "required": [
+        "mapConfiguration",
+        "markerLayers"
+    ],
+    "properties": {
+        "mapConfiguration": {
+            "$id": "#/properties/mapConfiguration",
+            "type": "object",
+            "title": "Map Configuration",
+            "description": "General map settings",
+            "default": {},
+            "options":{
+                "disable_edit_json": true
+            },
+            "examples": [
+                {
+                    "filename": "map.png",
+                    "mapWidth": 3000,
+                    "mapHeight": 3000,
+                    "minZoom": -1,
+                    "maxZoom": 1,
+                    "initialZoom": -1,
+                    "generateGrid": false,
+                    "squareHeightWidth": 75,
+                    "showGridLabels": false,
+                    "pixelsPerDay": 10.7,
+                    "measurementPostText": "in FTL"
+                }
+            ],
+            "required": [
+                "filename",
+                "mapWidth",
+                "mapHeight",
+                "minZoom",
+                "maxZoom",
+                "initialZoom",
+                "generateGrid",
+                "squareHeightWidth",
+                "showGridLabels",
+                "showDistance",
+                "pixelsPerDay",
+                "measurementPostText",
+                "customKey"
+            ],
+            "properties": {
+                "filename": {
+                    "$id": "#/properties/mapConfiguration/properties/filename",
+                    "type": "string",
+                    "title": "Filename",
+                    "description": "ie, map.png (must be stored in the assets/images folder)",
+                    "default": "map.png",
+                    "examples": [
+                        "map.png"
+                    ]
+                },
+                "mapWidth": {
+                    "$id": "#/properties/mapConfiguration/properties/mapWidth",
+                    "type": "integer",
+                    "title": "Map Width",
+                    "description": "Your map image's width in pixels",
+                    "default": 0,
+                    "examples": [
+                        3000
+                    ]
+                },
+                "mapHeight": {
+                    "$id": "#/properties/mapConfiguration/properties/mapHeight",
+                    "type": "integer",
+                    "title": "Map Height",
+                    "description": "Your map image's height in pixels",
+                    "default": 0,
+                    "examples": [
+                        3000
+                    ]
+                },
+                "minZoom": {
+                    "$id": "#/properties/mapConfiguration/properties/minZoom",
+                    "type": "integer",
+                    "title": "Minimum Zoom",
+                    "description": "Maximum amount a user can zoom out",
+                    "default": 0,
+                    "examples": [
+                        -1
+                    ],
+                    "enum": [0, -1, -2, -3]
+                },
+                "maxZoom": {
+                    "$id": "#/properties/mapConfiguration/properties/maxZoom",
+                    "type": "integer",
+                    "title": "Maximum Zoom",
+                    "description": "Maximum amount a user can zoom in",
+                    "default": 0,
+                    "examples": [
+                        1
+                    ],
+                    "enum": [0, 1, 2, 3]
+                },
+                "initialZoom": {
+                    "$id": "#/properties/mapConfiguration/properties/initialZoom",
+                    "type": "integer",
+                    "title": "Initial Zoom",
+                    "default": 0,
+                    "examples": [
+                        -1
+                    ],
+                    "enum": [-3, -2, -1, 0, 1, 2, 3]
+                },
+                "generateGrid": {
+                    "$id": "#/properties/mapConfiguration/properties/generateGrid",
+                    "type": "boolean",
+                    "title": "Generate Grid?",
+                    "description": "An automatic grid overlay that uses the value you define below to determine how large the grid squares should be.",
+                    "default": false,
+                    "examples": [
+                        false
+                    ]
+                },
+                "squareHeightWidth": {
+                    "$id": "#/properties/mapConfiguration/properties/squareHeightWidth",
+                    "type": "integer",
+                    "title": "Grid Square Dimensions",
+                    "description": "The height/width of your map's grid squares in pixels",
+                    "default": 0,
+                    "options": {
+                        "dependencies": {
+                            "generateGrid": true
+                        }
+                    },
+                    "examples": [
+                        75
+                    ]
+                },
+                "showGridLabels": {
+                    "$id": "#/properties/mapConfiguration/properties/showGridLabels",
+                    "type": "boolean",
+                    "title": "Show Grid Labels?",
+                    "description": "Show labels on the sides of the map that match up to the grid squares.",
+                    "default": false,
+                    "options": {
+                        "dependencies": {
+                            "generateGrid": true
+                        }
+                    },
+                    "examples": [
+                        false
+                    ]
+                },
+                "showDistance": {
+                    "$id": "#/properties/mapConfiguration/properties/showDistance",
+                    "type": "boolean",
+                    "title": "Show time-to-travel on the Course Plotter?",
+                    "description": "If enabled, the Course Plotter will use the values from two additional fields to display the amount of time it will take to travel along the plotted course by a specified .",
+                    "default": true,
+                    "examples": [
+                        true
+                    ]
+                },
+                "pixelsPerDay": {
+                    "$id": "#/properties/mapConfiguration/properties/pixelsPerDay",
+                    "type": "number",
+                    "title": "Pixels Travelable per Day",
+                    "description": "The amount of pixels your specified mode of transportation can travel in a day. IE, if you can travel twenty miles per day and twenty miles is 200 pixels, set this to 200.",
+                    "default": 0.0,
+                    "options": {
+                        "dependencies": {
+                            "showDistance": true
+                        }
+                    },
+                    "examples": [
+                        10.7
+                    ]
+                },
+                "measurementPostText": {
+                    "$id": "#/properties/mapConfiguration/properties/measurementPostText",
+                    "type": "string",
+                    "title": "Distance Description",
+                    "description": "The text to display after showing the time it would take to travel. IE, 'by car' or 'in FTL'.",
+                    "default": "",
+                    "options": {
+                        "dependencies": {
+                            "showDistance": true
+                        }
+                    },
+                    "examples": [
+                        "in FTL"
+                    ]
+                },
+                "customKey": {
+                    "$id": "#/properties/mapConfiguration/properties/customKey",
+                    "type": "string",
+                    "title": "Custom Key",
+                    "description": "ie, key.png (must be stored in the assets/images folder). If blank, no key will be displayed",
+                    "default": "",
+                    "examples": [
+                        "key.png"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "markerLayers": {
+            "$id": "#/properties/markerLayers",
+            "type": "array",
+            "title": "Layers",
+            "description": "Layers contain Markers, Labels, and Regions. They can be shown/hidden based on the user's zoom level.",
+            "format": "tabs",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "layerName": "Layer 1",
+                        "layerVisibility": "-2, -1, 0, 1",
+                        "markers": [
+                            {
+                                "name": "Sample",
+                                "icon": "fa-codepen",
+                                "markerColor": "red",
+                                "markerShape": "star",
+                                "popupContent": "Description",
+                                "coordinates": "1851.75, 1733.75"
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/markerLayers/items",
+                "title": " Layer",
+                "oneOf": [
+                    {
+                        "$id": "#/properties/markerLayers/items/anyOf/0",
+                        "type": "object",
+                        "title": "Layer",
+                        "default": {},
+                        "options":{
+                            "disable_edit_json": true,
+                            "disable_collapse": true
+                        },
+                        "examples": [
+                            {
+                                "layerName": "Layer 1",
+                                "layerVisibility": "-2, -1, 0, 1",
+                                "markers": [
+                                    {
+                                        "name": "Sample",
+                                        "icon": "fa-codepen",
+                                        "markerColor": "red",
+                                        "markerShape": "star",
+                                        "popupContent": "Description",
+                                        "coordinates": "1851.75, 1733.75"
+                                    }
+                                ]
+                            }
+                        ],
+                        "required": [
+                            "layerName",
+                            "layerVisibility",
+                            "markers"
+                        ],
+                        "properties": {
+                            "layerName": {
+                                "$id": "#/properties/markerLayers/items/anyOf/0/properties/layerName",
+                                "type": "string",
+                                "title": "Layer Name",
+                                "description": "This layer's name will be visible to users to allow them to toggle it on/off manually.",
+                                "default": "",
+                                "examples": [
+                                    "Marker Type 1"
+                                ]
+                            },
+                            "layerVisibility": {
+                                "$id": "#/properties/markerLayers/items/anyOf/0/properties/layerVisibility",
+                                "type": "string",
+                                "title": "Zoom Visibility",
+                                "description": "A comma-separated list of zoom levels that this Layer will be visible on. Zoom levels are positive or negative numbers, less than or greater than 3.",
+                                "default": "",
+                                "examples": [
+                                    "-2, -1, 0, 1"
+                                ]
+                            },
+                            "markers": {
+                                "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers",
+                                "type": "array",
+                                "format": "tabs",
+                                "title": "Markers, Labels, and Regions",
+                                "description": "Markers are interactive pins on the map and open a tooltip when clicked. Labels display stylable text directly on the map. Regions are semi-transparent polygons. They are shown/hidden based on the Layer they belong to",
+                                "default": [],
+                                "examples": [
+                                    [
+                                        {
+                                            "name": "Sample",
+                                            "markerIcon": "fa-codepen",
+                                            "markerColor": "red",
+                                            "markerShape": "star",
+                                            "popupContent": "Description",
+                                            "markerCoordinates": "1851.75, 1733.75"
+                                        }
+                                    ]
+                                ],
+                                "additionalItems": true,
+                                "items": {
+                                    "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items",
+                                    "title": "Map Object",
+                                    "anyOf": [
+                                        {
+                                            "$id": "#/properties/markerLayers/items/anyOf/0/properties/markers/items/anyOf/0",
+                                            "title": "name",
+                                            "$ref": "schema_mapobject.json",
+                                            "options":{
+                                                "disable_edit_json": true,
+                                                "disable_collapse": true
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": false
+}

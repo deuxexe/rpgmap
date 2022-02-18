@@ -1,0 +1,105 @@
+{
+  "name": "Khorvaire",
+  "coords": "3000,2050",
+  "zoom": -1,
+  "children": [
+    {
+      "name": "Aundair",
+      "coords": "1966,1856",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "Breland",
+      "coords": "1592,890",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "Darguun",
+      "coords": "2680,296",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "Demon Wastes",
+      "coords": "996,2118",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "Droaam",
+      "coords": "882,762",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "Eldeen Reaches",
+      "coords": "1202,1636",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "Karrnath",
+      "coords": "2952,1978",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "Lhazaar Principalities",
+      "coords": "4086,2370",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "Mror Holds",
+      "coords": "3504,2432",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "O'Barra",
+      "coords": "3800,1188",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "Thrane",
+      "coords": "2198,1462",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "Shadow Marches",
+      "coords": "284,1228",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "Valenar",
+      "coords": "3268,586",
+      "zoom": 0,
+      "children": [
+      ]
+    },
+    {
+      "name": "Zilargo",
+      "coords": "1912,482",
+      "zoom": 0,
+      "children": [
+      ]
+    }
+  ]
+}
